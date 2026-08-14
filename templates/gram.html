@@ -1,0 +1,139 @@
+<h2>Gram-Schmidt Orthogonalization</h2>
+
+<form method="POST">
+
+    <input type="hidden" name="topic" value="gram">
+
+    <label for="gram-vectors">Number of Vectors:</label>
+
+    <input
+        type="number"
+        id="gram-vectors"
+        name="vectors"
+        min="1"
+        required
+    >
+
+    <br><br>
+
+    <label for="gram-dimension">Dimension of each Vector:</label>
+
+    <input
+        type="number"
+        id="gram-dimension"
+        name="dimension"
+        min="1"
+        required
+    >
+
+    <br><br>
+
+    <button type="button" onclick="generateGramVectors()">
+        Generate Vectors
+    </button>
+
+    <br><br>
+
+    <div id="gram-vector-inputs"></div>
+
+    <br>
+
+    <button type="submit">
+        Apply Gram-Schmidt
+    </button>
+
+</form>
+<hr>
+{% if orthogonal %}
+
+<h3>Orthogonal Vectors</h3>
+
+{% for vector in orthogonal %}
+    <p>
+        u{{ loop.index }} =
+        ({{ vector | join(", ") }})
+    </p>
+{% endfor %}
+
+{% endif %}
+
+
+{% if orthonormal %}
+
+<hr>
+
+<h3>Orthonormal Vectors</h3>
+
+{% for vector in orthonormal %}
+    <p>
+        e{{ loop.index }} =
+        ({{ vector | join(", ") }})
+    </p>
+{% endfor %}
+
+{% endif %}
+
+
+{% if steps %}
+
+<hr>
+
+<h3>Steps</h3>
+
+{% for step in steps %}
+
+<p>
+    <strong>{{ step.operation }}</strong>
+</p>
+
+{% if "vector" in step %}
+<p>
+    Vector: {{ step.vector }}
+</p>
+{% endif %}
+
+{% if "magnitude" in step %}
+<p>
+    Magnitude: {{ step.magnitude }}
+</p>
+{% endif %}
+
+{% if "dot_v_u" in step %}
+<p>
+    Dot product (v · u): {{ step.dot_v_u }}
+</p>
+{% endif %}
+
+{% if "dot_u_u" in step %}
+<p>
+    Dot product (u · u): {{ step.dot_u_u }}
+</p>
+{% endif %}
+
+{% if "coefficient" in step %}
+<p>
+    Projection coefficient: {{ step.coefficient }}
+</p>
+{% endif %}
+
+{% if "projection" in step %}
+<p>
+    Projection: {{ step.projection }}
+</p>
+{% endif %}
+
+{% if "result" in step %}
+<p>
+    Result: {{ step.result }}
+</p>
+{% endif %}
+
+{% if "unit_vector" in step %}
+<p>
+    Unit vector: {{ step.unit_vector }}
+</p>
+{% endif %}
+
+{% endfor %}
+
+{% endif %}

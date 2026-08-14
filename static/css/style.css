@@ -1,0 +1,243 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family: "Manrope", sans-serif;
+    background-color: #F3E6D3;
+    color: #3E2C23;
+}
+
+.header{
+    background-color:#6F4E37;
+    color:white;
+    margin:16px 20px;
+    padding:14px 25px;
+    border-radius:8px;
+    text-align:center;
+    box-shadow:0 4px 12px 
+    rgba(0,0,0,0.12);
+}
+
+.header h1{
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+.header p{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.container{
+    display:flex;
+    gap:22px;
+    padding:0 20px 20px;
+    align-items:flex-start;
+}
+
+.sidebar{
+    width:250px;
+    background-color:#F3E6D3;
+    flex-shrink:0;
+}
+.sidebar h2{
+    color:#5C4033;
+    font-size:22px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.main-content{
+    flex:1;
+    padding:0;
+    padding-top: 10px;
+}
+
+#content-area{
+    background-color: #FFFFFF;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 22px
+    rgba(0,0,0,0.08);
+}
+
+.topic-btn{
+    display:block;
+    width:100%;
+    padding:12px;
+    margin:12px 0;
+    text-decoration:none;
+    text-align:center;
+    background-color:#FFFFFF;
+    color:#5C4033;
+    border-radius:10px;
+    font-size: 14px;
+    font-weight:500;
+    transition:all 0.3s ease;
+    box-shadow: 0 2px 8px 
+    rgba(0,0,0,0.05);
+}
+
+.topic-btn:hover{
+    background-color: #A67C52;
+    color:white;
+    transform: translateY(-2px);
+}
+
+#content-area input[type="number"]{
+    padding:10px;
+    margin:8px;
+    border:1.5px solid #D9C7AE;
+    border-radius:10px;
+    font-family: "Manrope",sans-serif;
+    font-size: 14px;
+    outline:none;
+    transition: 0.3s;
+}
+
+#content-area input[type="number"]:focus{
+    border-color:#A67C52;
+    box-shadow:0 0 6px
+    rgba(166,124,82,0.25);
+}
+
+#content-area label{
+    font-size: 15px;
+    font-weight:600;
+    color: #5C4033;
+}
+
+#content-area button{
+    background-color:#A67C52;
+    color: white;
+    padding:12px 24px;
+    border:none;
+    border-radius:10px;
+    font-family: "Manrope",sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#content-area button:hover{
+    background-color: #8B5E3C;
+    transform: translateY(-2px);
+}
+
+#matrix-inputs input{
+    width:60px;
+    height:40px;
+    text-align:center;
+    margin:4px;
+}
+
+#matrix-inputs{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+h2{
+    font-size:24px;
+    font-weight:600;
+    color:#5C4033;
+    margin-bottom:20px;
+}
+
+h3{
+    font-size:20px;
+    font-weight:600;
+    color:#6F4E37;
+    margin-top:25px;
+    margin-bottom:15px;
+}
+
+h4{
+    font-size:17px;
+    font-weight:600;
+    color:#8B5E3C;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+table{
+    width:auto;
+    display:inline-table;
+    border-collapse:collapse;
+    margin:20px 0;
+    background:#FFFFFF;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,0.06);
+}
+
+td{
+    border:1px solid #E4D6C3;
+    padding:12px;
+    text-align:center;
+    color:#3E2C23;
+}
+
+th{
+    background-color:#6F4E37;
+    color:white;
+    padding:12px;
+    font-weight:600;
+}
+
+hr{
+    border:none;
+    height:1px;
+    background-color:#D8C6B0;
+    margin:25px 0;
+}
+
+#content-area p{
+    color:#5A4A42;
+    font-size:15px;
+    line-height:1.7;
+    margin:0;
+}
+
+#vector-inputs input{
+    width:60px;
+    height:40px;
+    text-align:center;
+    margin:4px;
+}
+
+#vector-inputs label{
+    display:inline-block;
+    width:35px;
+    font-weight:600;
+}
+
+#span-vector-inputs input{
+    width:60px;
+    height:40px;
+    text-align:center;
+    margin:4px;
+}
+
+#span-vector-inputs label{
+    display:inline-block;
+    width:35px;
+    font-weight:600;
+}
+
+#gram-vector-inputs input {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    margin: 4px;
+}
+
+#gram-vector-inputs label {
+    display: inline-block;
+    width: 35px;
+    font-weight: 600;
+}

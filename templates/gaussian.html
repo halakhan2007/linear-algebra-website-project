@@ -1,0 +1,242 @@
+<h2>Gaussian & Gauss-Jordan Elimination</h2>
+
+<form method="POST" action="/?topic=gaussian">
+
+    <label for="operation">Choose Operation:</label>
+
+    <select id="operation" name="operation" required>
+
+        <option value="gaussian">
+            Gaussian Elimination
+        </option>
+
+        <option value="gauss_jordan">
+            Gauss-Jordan Elimination
+        </option>
+
+    </select>
+
+    <br><br>
+
+    <label for="rows">Rows:</label>
+
+    <input
+        type="number"
+        id="rows"
+        name="rows"
+        min="1"
+        required
+    >
+
+    <br><br>
+
+    <label for="cols">Columns:</label>
+
+    <input
+        type="number"
+        id="cols"
+        name="cols"
+        min="1"
+        required
+    >
+
+    <br><br>
+
+    <button type="button" onclick="generateMatrix()">
+        Generate Matrix
+    </button>
+
+    <br><br>
+
+    <div id="matrix-inputs"></div>
+
+    <br>
+
+    <button type="submit">
+        Solve
+    </button>
+
+</form>
+
+
+{% if error %}
+
+<hr>
+
+<h3>Error</h3>
+
+<p>{{ error }}</p>
+
+{% endif %}
+
+
+{% if operation == "gaussian" and final_matrix %}
+
+<hr>
+
+<h3>Gaussian Elimination</h3>
+
+<h4>Row-Echelon Form</h4>
+
+<table>
+
+    {% for row in final_matrix %}
+
+    <tr>
+
+        {% for value in row %}
+
+        <td>{{ value }}</td>
+
+        {% endfor %}
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endif %}
+
+
+{% if operation == "gaussian" and steps %}
+
+<h4>Gaussian Elimination Steps</h4>
+
+{% for step in steps %}
+
+<h4>{{ step.operation }}</h4>
+
+<table>
+
+    {% for row in step.matrix %}
+
+    <tr>
+
+        {% for value in row %}
+
+        <td>{{ value }}</td>
+
+        {% endfor %}
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<br>
+
+{% endfor %}
+
+{% endif %}
+
+
+{% if operation == "gaussian" and back_steps %}
+
+<h4>Back-Substitution Steps</h4>
+
+{% for step in back_steps %}
+
+<p>
+    {{ step.operation }}
+</p>
+
+{% if step.matrix %}
+
+<table>
+
+    {% for row in step.matrix %}
+
+    <tr>
+
+        {% for value in row %}
+
+        <td>{{ value }}</td>
+
+        {% endfor %}
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endif %}
+
+{% endfor %}
+
+{% endif %}
+
+
+{% if operation == "gaussian" and solution is not none %}
+
+<h4>Final Solution</h4>
+
+<p>
+    {{ solution }}
+</p>
+
+{% endif %}
+
+
+{% if operation == "gauss_jordan" and final_matrix %}
+
+<hr>
+
+<h3>Gauss-Jordan Elimination</h3>
+
+<h4>Final Reduced Row-Echelon Form</h4>
+
+<table>
+
+    {% for row in final_matrix %}
+
+    <tr>
+
+        {% for value in row %}
+
+        <td>{{ value }}</td>
+
+        {% endfor %}
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endif %}
+
+
+{% if operation == "gauss_jordan" and steps %}
+
+<h4>Gauss-Jordan Steps</h4>
+
+{% for step in steps %}
+
+<h4>{{ step.operation }}</h4>
+
+<table>
+
+    {% for row in step.matrix %}
+
+    <tr>
+
+        {% for value in row %}
+
+        <td>{{ value }}</td>
+
+        {% endfor %}
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<br>
+
+{% endfor %}
+
+{% endif %}

@@ -1,0 +1,75 @@
+<h2>Characteristic Polynomial</h2>
+
+<form method="POST">
+
+    <input type="hidden" name="topic" value="characteristic">
+
+    <label for="matrix-size">Matrix Size:</label>
+
+    <input
+        type="number"
+        id="matrix-size"
+        name="size"
+        min="1"
+        required
+    >
+
+    <br><br>
+
+    <button type="button" onclick="generateCharacteristicMatrix()">
+        Generate Matrix
+    </button>
+
+    <br><br>
+
+    <div id="characteristic-matrix-inputs"></div>
+
+    <br>
+
+    <button type="submit">
+        Calculate Characteristic Polynomial
+    </button>
+
+</form>
+<hr>
+{% if polynomial %}
+
+<h3>Characteristic Polynomial</h3>
+
+<p>{{ polynomial }}</p>
+
+{% endif %}
+
+{% if steps %}
+
+<hr>
+
+<h3>Steps</h3>
+
+{% for step in steps %}
+
+<p>
+    <strong>{{ step.operation }}</strong>
+</p>
+
+{% if "matrix" in step %}
+<p>
+    Matrix: {{ step.matrix }}
+</p>
+{% endif %}
+
+{% if "expression" in step %}
+<p>
+    Expression: {{ step.expression }}
+</p>
+{% endif %}
+
+{% if "polynomial" in step %}
+<p>
+    Characteristic Polynomial: {{ step.polynomial }}
+</p>
+{% endif %}
+
+{% endfor %}
+
+{% endif %}

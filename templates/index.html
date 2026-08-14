@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title> Linear Lab </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+<body> 
+<div class="header">
+    <h1>Linear Lab</h1>
+    <p>Learn • Solve • Visualize</p>
+</div>
+<div class="container">
+    <div class="sidebar">
+    <h2>Topics</h2>
+    <a href="/?topic=gaussian" class="topic-btn">
+    🧮 Gaussian & Gauss-Jordan Elimination
+</a>
+
+<a href="/?topic=dependence" class="topic-btn">
+    🔗 Linear Dependence & Independence
+</a>
+
+<a href="/?topic=span" class="topic-btn">
+   📚 Span, Basis & Dimension
+</a>
+
+<a href="/?topic=kernel" class="topic-btn">
+   🔄 Kernel & Image of a Linear Mapping
+</a>
+
+<a href="/?topic=gram" class="topic-btn">
+   📐 Gram-Schmidt Orthogonalization
+</a>
+
+<a href="/?topic=characteristic" class="topic-btn">
+   📈 Characteristic Polynomial
+</a>
+
+   </div>
+   <div class="main-content"> 
+
+        <div id="content-area">
+            {% if topic == "gaussian" %}
+        {% include "gaussian.html" %}
+
+    {% elif topic == "dependence" %}
+        {% include "dependence.html" %}
+
+    {% elif topic == "span" %}
+        {% include "span.html" %}
+
+    {% elif topic == "kernel" %}
+        {% include "kernel.html" %}
+
+    {% elif topic == "gram" %}
+        {% include "gram.html" %}
+
+    {% elif topic == "characteristic" %}
+        {% include "characteristic.html" %}
+
+    {% elif topic == "vector" %}
+        {% include "vector.html" %}
+
+    {% else %}
+        <p>Welcome! Select a topic from the sidebar to solve Linear Algebra problems step by step.</p>
+    {% endif %}
+           
+     </div>
+   </div>
+</div>    
+
+    <script src="{{url_for('static',filename='js/script.js')}}">
+    </script>
+</body>
+</html>

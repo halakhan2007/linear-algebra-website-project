@@ -1,0 +1,70 @@
+<h2>Kernel & Image of a Linear Mapping</h2>
+
+<form method="POST">
+
+    <input type="hidden" name="topic" value="kernel">
+
+    <label for="rows">Rows:</label>
+    <input
+        type="number"
+        id="kernel-rows"
+        name="rows"
+        min="1"
+        required
+    >
+
+    <br><br>
+
+    <label for="cols">Columns:</label>
+    <input
+        type="number"
+        id="kernel-cols"
+        name="cols"
+        min="1"
+        required
+    >
+
+    <br><br>
+
+    <button type="button" onclick="generateKernelMatrix()">
+        Generate Matrix
+    </button>
+
+    <br><br>
+
+    <div id="kernel-matrix-inputs"></div>
+
+    <br>
+
+    <button type="submit">
+        Calculate Kernel & Image
+    </button>
+
+</form>
+
+<hr>
+{% if kernel_basis is not none %}
+
+<h3>Kernel Basis</h3>
+
+<p>{{ kernel_basis }}</p>
+
+<h3>Dimension of Kernel</h3>
+
+<p>{{ kernel_dimension }}</p>
+
+{% endif %}
+
+
+{% if image_basis is not none %}
+
+
+<h3>Image Basis</h3>
+
+<p>{{ image_basis }}</p>
+
+<h3>Dimension of Image</h3>
+
+<p>{{ image_dimension }}</p>
+
+{% endif %}
